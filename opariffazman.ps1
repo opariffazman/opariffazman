@@ -57,6 +57,28 @@ function top {
   Start-Typing -text " top - ${uptimeString}`n`n`tPID `tUSER `tCOMMAND `n${top}" -delay 1
 }
 
+function history { 
+  $histories = "TeamCity, Jenkins, GitHub, GitLab, Azure DevOps", `
+  "PowerShell, JavaScript (NodeJS/server-side), Bash, Python", `
+  "C++, C, Lua, (SQL, HTML5 & CSS3)", `
+  "Azure Functions, Azure PlayFab & Aws GameLift", `
+  "VMWare, Azure VM & Aws EC2", `
+  "Docker & OpenShift", `
+  "Unreal Engine, Godot & RPGMaker"
+
+  $num = 1
+  $history = $histories | % {
+    if ($num -lt ($histories.Length)) {
+      "$num $_`n"
+    } else {
+      "$num $_"
+    }
+    $num = $num + 1
+  }
+
+  Start-Typing -text " $history" -delay 1
+}
+ 
 function free {
   Start-Typing " During my free time, I plays video games and reverse engineers them as game `"mods`" that I share with the community" -emoji "`u{1F3AE}" -delay 30 -line $true
   Start-Typing " Other times I tinker with my self-hosted generative Artifical Intelligence techs exploring its capabilities and potential" -emoji "`u{1F917}" -delay 30
