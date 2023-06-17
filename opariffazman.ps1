@@ -17,13 +17,13 @@ function Start-Typing ($emoji, $text, $delay, $line) {
 }
 
 function whoami {
-  Start-Typing " My name is Ariff Bin Azman and the github handler is `"opariffazman`" because the `"OP`" stands for `"overpowered`"" -emoji "`u{1F4BB}" -delay 30  -line $true
-  Start-Typing " Jokes aside it is actually an alumni form of my college, the Royal Military College, `"old putera`"" -emoji "`u{1F3EB}" -delay 30
+  Start-Typing "  My name is Ariff Bin Azman and the github handler is `"opariffazman`" because the `"OP`" stands for `"overpowered`"" -emoji "`u{1F4BB}" -delay 30  -line $true
+  Start-Typing "  Jokes aside it is actually an alumni form of my college that means `"Old Putera`" or `"Old Prince`"" -emoji "`u{1F3EB}" -delay 30
 }
 
 function pwd {
-  Start-Typing " I'm currently working for an indie video game company called AmmoboxStudios from Malaysia" -emoji "`u{1F4BC}" -delay 30 -line $true
-  Start-Typing " Responsible of our backend for multiple multiplayer games and CI/CD automation for complete development cycle" -emoji "`u{267E}`u{FE0F}" -delay 30
+  Start-Typing "  I'm currently working for an indie video game company called AmmoboxStudios from Malaysia" -emoji "`u{1F4BC}" -delay 30 -line $true
+  Start-Typing "  Responsible of our backend for multiple multiplayer games and CI/CD automation for complete development cycle" -emoji "`u{267E}`u{FE0F}" -delay 30
 }
 
 function top {
@@ -39,9 +39,9 @@ function top {
   $num = 0
   $top = $skills | % {
     if ($num -lt ($skills.Length-1)) {
-      "`t100$num `troot `t$_`n"
+      "`t00$num `troot `t$_`n"
     } else {
-      "`t200$num `troot `t$_"
+      "`t00$num `troot `t$_"
     }
     $num = $num + 1
   }
@@ -80,13 +80,13 @@ function history {
 }
  
 function free {
-  Start-Typing " During my free time, I plays video games and reverse engineers them as game `"mods`" that I share with the community" -emoji "`u{1F3AE}" -delay 30 -line $true
-  Start-Typing " Other times I tinker with my self-hosted generative Artifical Intelligence techs exploring its capabilities and potential" -emoji "`u{1F917}" -delay 30
+  Start-Typing "  During my free time, I plays video games and reverse engineers them as game `"mods`" that I share with the community" -emoji "`u{1F3AE}" -delay 30 -line $true
+  Start-Typing "  Other times I tinker with my self-hosted generative Artifical Intelligence techs exploring its capabilities and potential" -emoji "`u{1F917}" -delay 30
 }
 
 function grep {
-  Start-Typing " As I'm a very lazy person, I'll find ways to get things done in the most efficient manner" -emoji "`u{1F3C3}" -delay 30 -line $true
-  Start-Typing " Wishing for days where human do more meaningful obligation while machines masterfully executes the tedious repetition" -emoji "`u{1F50E}" -delay 30
+  Start-Typing "  As I'm a very lazy person, I'll find ways to get things done in the most efficient manner" -emoji "`u{1F3C3}" -delay 30 -line $true
+  Start-Typing "  Wishing for days where human do more meaningful obligation while machines masterfully executes the tedious repetition" -emoji "`u{1F50E}" -delay 30
 }
 
 function traceroute {
@@ -106,6 +106,6 @@ function traceroute {
     $num = $num + 1
   }
 
-  Start-Typing -text " traceroute to ariff.azman@pm.me (60.12.4414.248), 5 hops max, 60 byte packets `n${traceroute}" -delay 1
+  Start-Typing -text "  traceroute to ariff.azman@pm.me (60.12.4414.248), 5 hops max, 60 byte packets `n${traceroute}" -delay 1
 }
 
