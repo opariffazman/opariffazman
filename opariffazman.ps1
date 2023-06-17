@@ -22,7 +22,7 @@ function whoami {
 }
 
 function pwd {
-  Start-Typing " I'm currently working for an indie game company called ammobox studios from malaysia" -emoji "`u{1F4BC}" -delay 30 -line $true
+  Start-Typing " I'm currently working for an indie game company called AmmoboxStudios from Malaysia" -emoji "`u{1F4BC}" -delay 30 -line $true
   Start-Typing " Responsible for ci/cd stuffs and backend of a couple of multiplayer games currently in development" -emoji "`u{267E}`u{FE0F}" -delay 30
 }
 
@@ -55,12 +55,12 @@ function top {
 
 function free {
   Start-Typing " During my free time, I plays video games and reverse engineers them as game `"mods`" that I share with the community" -emoji "`u{1F3AE}" -delay 30 -line $true
-  Start-Typing " Other times I tinker with my self-hosted generative Artifical Inteliigence techs exploring its capabilities and potential" -emoji "`u{1F917}" -delay 30
+  Start-Typing " Other times I tinker with my self-hosted generative Artifical Intelligence techs exploring its capabilities and potential" -emoji "`u{1F917}" -delay 30
 }
 
 function grep {
-  Start-Typing " As I'm a very lazy person, I'll find ways to get things done in the most efficient manner " -emoji "`u{1F3C3}" -delay 30 -line $true
-  Start-Typing " Wishing for days where human do more meaningful obligation while machines masterfully executes the tedious repition" -emoji "`u{1F50E}" -delay 30
+  Start-Typing " As I'm a very lazy person, I'll find ways to get things done in the most efficient manner" -emoji "`u{1F3C3}" -delay 30 -line $true
+  Start-Typing " Wishing for days where human do more meaningful obligation while machines masterfully executes the tedious repetition" -emoji "`u{1F50E}" -delay 30
 }
 
 function traceroute {
