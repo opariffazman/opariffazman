@@ -17,13 +17,13 @@ function Start-Typing ($emoji, $text, $delay, $line) {
 }
 
 function whoami {
-  Start-Typing " My name is ariff azman and the github handler is `"opariffazman`" because the `"OP`" stands for `"overpowered`"" -emoji "`u{1F4BB}" -delay 30  -line $true
+  Start-Typing " My name is Ariff Bin Azman and the github handler is `"opariffazman`" because the `"OP`" stands for `"overpowered`"" -emoji "`u{1F4BB}" -delay 30  -line $true
   Start-Typing " Jokes aside it is actually an alumni form of my college, the Royal Military College, `"old putera`"" -emoji "`u{1F3EB}" -delay 30
 }
 
 function pwd {
-  Start-Typing " I'm currently working for an indie game company called AmmoboxStudios from Malaysia" -emoji "`u{1F4BC}" -delay 30 -line $true
-  Start-Typing " Responsible for ci/cd stuffs and backend of a couple of multiplayer games currently in development" -emoji "`u{267E}`u{FE0F}" -delay 30
+  Start-Typing " I'm currently working for an indie video game company called AmmoboxStudios from Malaysia" -emoji "`u{1F4BC}" -delay 30 -line $true
+  Start-Typing " Responsible for CI/CD stuffs and backend of a couple of multiplayer games currently in development" -emoji "`u{267E}`u{FE0F}" -delay 30
 }
 
 function top {
