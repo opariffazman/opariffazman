@@ -38,7 +38,11 @@ function top {
 
   $num = 0
   $top = $skills | % {
-    "`t00$num `troot `t$_`n"
+    if ($num -lt ($skills.Length-1)) {
+      "`t100$num `troot `t$_`n"
+    } else {
+      "`t200$num `troot `t$_"
+    }
     $num = $num + 1
   }
 
@@ -65,14 +69,18 @@ function grep {
 
 function traceroute {
   $socials = "linkedin.com/in/opariffazman/ (13.107.42.14) 1.121 ms  1.317 ms  1.502 ms", `
-  "steamcommunity.com/id/opsedar/ (104.84.181.123) 9.745 ms  9.901 ms  9.965 ms", `
-  "nexusmods.com/users/16167329/ (104.18.7.36) 10.311 ms  10.470 ms  10.532 ms", `
-  "discordapp.com/users/178370555072872449/ (162.159.130.233) 10.819 ms  10.979 ms  11.036 ms", `
-  "github.com/opariffazman (20.205.243.166) 12.433 ms  12.596 ms  12.651 ms"
+    "steamcommunity.com/id/opsedar/ (104.84.181.123) 9.745 ms  9.901 ms  9.965 ms", `
+    "nexusmods.com/users/16167329/ (104.18.7.36) 10.311 ms  10.470 ms  10.532 ms", `
+    "discordapp.com/users/178370555072872449/ (162.159.130.233) 10.819 ms  10.979 ms  11.036 ms", `
+    "github.com/opariffazman (20.205.243.166) 12.433 ms  12.596 ms  12.651 ms"
   
   $num = 0
   $traceroute = $socials | % {
-    "`t$num $_ `n"
+    if ($num -lt ($socials.Length-1)) {
+      "`t$num $_`n"
+    } else {
+      "`t$num $_"
+    }
     $num = $num + 1
   }
 
