@@ -2,8 +2,8 @@
 <div align="center">
   <img src="opariffazman.gif" alt="header"/>
   <br> <br>
-  <img src="https://komarev.com/ghpvc/?username=opariffazman" alt="https://github.com/opariffazman" />
-  <a href="https://github.com/opariffazman/opariffazman" target="_blank"><img alt="GitHub hits" src="https://img.shields.io/github/last-commit/opariffazman/opariffazman?label=Profile%20Updated"></a>
+  <!-- <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red" alt="https://github.com/opariffazman" /> -->
+  <a href="https://github.com/opariffazman/opariffazman" target="_blank"><img alt="Profile Updated" src="https://img.shields.io/github/last-commit/opariffazman/opariffazman?style=for-the-badge&label=Profile%20Updated&llogoColor=red&labelColor=black&color=red""></a>
 </div>
 
 <hr>
