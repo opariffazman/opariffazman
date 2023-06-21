@@ -1,4 +1,4 @@
-<h1 align="center"> 👋 </h1>
+<h1 align="center"> <img src="meow_bongotap.gif" alt="meow_bongotap"/> </h1>
 <div align="center">
   <img src="opariffazman.gif" alt="header"/>
   <br> <br>
