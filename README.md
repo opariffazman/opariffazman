@@ -1,8 +1,9 @@
 <h1 align="center"> <img src="meow_bongotap.gif" alt="meow_bongotap"/> </h1>
 <div align="center">
+  <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red&label=Thu, 22 Jun, 00:00 GMT+8" alt="https://github.com/opariffazman" />
+  <br> <br>
   <img src="opariffazman.gif" alt="header"/>
   <br> <br>
-  <!-- <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red" alt="https://github.com/opariffazman" /> -->
   <a href="https://github.com/opariffazman/opariffazman" target="_blank"><img alt="Profile Updated" src="https://img.shields.io/github/last-commit/opariffazman/opariffazman?style=for-the-badge&label=Profile%20Updated&llogoColor=red&labelColor=black&color=red""></a>
 </div>
 
@@ -18,8 +19,8 @@
   <img src="https://img.shields.io/badge/docker-black?style=for-the-badge&logo=docker" />&nbsp;&nbsp;&nbsp;
   <img src="https://img.shields.io/badge/teamcity-black?style=for-the-badge&logo=teamcity" />&nbsp;&nbsp;&nbsp;
   <img src="https://img.shields.io/badge/python-black?style=for-the-badge&logo=python" />&nbsp;&nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/unrealengine-black?style=for-the-badge&logo=unrealengine" />&nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/godotengine-black?style=for-the-badge&logo=godotengine" />&nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/unrealengine-black?style=for-the-badge&logo=unrealengine" />&nbsp;&nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/godotengine-black?style=for-the-badge&logo=godotengine" />&nbsp;&nbsp;&nbsp;
 </p>
 
 <hr>
@@ -28,7 +29,7 @@
 <br>
 <p align="center">
   <a href="https://www.linkedin.com/in/opariffazman" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-black?style=for-the-badge&logo=linkedin&logoColor=blue"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/opariffazman" target="_blank"><img alt="Github" src="https://img.shields.io/badge/github-black?style=for-the-badge&logo=github" /></a>&nbsp;&nbsp;&nbsp;&nbsp; 
+  <a href="https://opariffazman.github.io/" target="_blank"><img alt="Github" src="https://img.shields.io/badge/github-black?style=for-the-badge&logo=github" /></a>&nbsp;&nbsp;&nbsp;&nbsp; 
   <a href="https://gamejolt.com/@opsedar" target="_blank"><img alt="Gamejolt" src="https://img.shields.io/badge/gamejolt-black?style=for-the-badge&logo=gamejolt" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://steamcommunity.com/id/opsedar/" target="_blank"><img alt="Steam" src="https://img.shields.io/badge/steam-black?style=for-the-badge&logo=steam" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://discordapp.com/users/178370555072872449/" target="_blank"><img alt="Discord" src="https://img.shields.io/badge/discord-black?style=for-the-badge&logo=discord" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
