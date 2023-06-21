@@ -5,9 +5,10 @@ const MUSTACHE_MAIN_DIR = "./main.mustache"
 
 let DATA = {
   name: "opariffazman",
+  nickname: "opsedar",
   date: new Date().toLocaleDateString("en-GB", {
-    weekday: "long",
-    month: "long",
+    weekday: "short",
+    month: "short",
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
