@@ -1,6 +1,6 @@
 <h1 align="center"> <img src="meow_bongotap.gif" alt="meow_bongotap"/> </h1>
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red&label=github+hits+on+Thu, 22 Jun, 14:00 GMT+8" alt="https://github.com/opariffazman" />
+  <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red&label=github+hits+on+Thu, 22 Jun, 14:13 GMT+8" alt="https://github.com/opariffazman" />
   <br> <br>
   <img src="opariffazman.gif" alt="header"/>
   <br> <br>
@@ -9,7 +9,7 @@
 
 <hr>
 
-<h2 align="center"> ⚔️ Tools of Trade</h2>
+<h2 align="center"> ⚔️ Tools of The Trade ⚔️</h2>
 <br>
 <p align="center">
   <img src="https://img.shields.io/badge/powershell-black?style=for-the-badge&logo=powershell" />&nbsp;&nbsp;&nbsp;
@@ -25,7 +25,7 @@
 
 <hr>
 
-<h2 align="center"> 👣 My digital footprints </h2>
+<h2 align="center"> 👣 Digital Footprints 👣 </h2>
 <br>
 <p align="center">
   <a href="https://www.linkedin.com/in/opariffazman" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-black?style=for-the-badge&logo=linkedin&logoColor=blue"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -37,4 +37,12 @@
   <a href="mailto:ariff.azman@pm.me" target="_blank"><img alt="Proton" src="https://img.shields.io/badge/protonmail-black?style=for-the-badge&logo=protonmail" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
-<h2 align="center"> 🖥️ Here's my public repos 👇</h2>
+<hr>
+
+<h2 align="center"> ℹ️ PSA ℹ️ </h2>
+<br>
+<p align="center">
+<img alt="psa" src="https://readme-jokes.vercel.app/api?theme=gotham" />
+</p>
+
+<h2 align="center"> 🖥️ Public repositories 👇 </h2>
