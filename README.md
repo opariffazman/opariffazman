@@ -28,7 +28,6 @@
 <h2 align="center"> 👣 Digital Footprints 👣 </h2>
 <br>
 <p align="center">
-  <a href="https://www.linkedin.com/in/opariffazman" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-black?style=for-the-badge&logo=linkedin&logoColor=blue"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://opariffazman.github.io/" target="_blank"><img alt="Github" src="https://img.shields.io/badge/github-black?style=for-the-badge&logo=github" /></a>&nbsp;&nbsp;&nbsp;&nbsp; 
   <a href="https://gamejolt.com/@opsedar" target="_blank"><img alt="Gamejolt" src="https://img.shields.io/badge/gamejolt-black?style=for-the-badge&logo=gamejolt" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://steamcommunity.com/id/opsedar/" target="_blank"><img alt="Steam" src="https://img.shields.io/badge/steam-black?style=for-the-badge&logo=steam" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
