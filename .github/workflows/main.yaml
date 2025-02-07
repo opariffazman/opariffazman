@@ -27,12 +27,9 @@ jobs:
       - name: Update README file
         run: node index.js
 
-      - name: Commit and push README.md
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git add .
-          git commit -m "chore: updated README.md [skip ci]"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit & push README changes
+        uses: test-room-7/action-update-file@v2.0.0
+        with:
+            file-path: README.md
+            commit-msg: "chore: updated README.md [skip ci]"
+            github-token: ${{ secrets.GITHUB_TOKEN }}
