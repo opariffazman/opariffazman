@@ -2,7 +2,7 @@ $header = Get-Content .\hello-world.txt -Encoding UTF8
 Write-Output "----------------------------------------------------------------------------------------"
 $header | ForEach-Object {
   Write-Output $_
-  Start-Sleep -Milliseconds 200
+  Start-Sleep -Milliseconds 100
 }
 Write-Output "----------------------------------------------------------------------------------------"
 
@@ -17,27 +17,29 @@ function Start-Typing ($emoji, $text, $delay, $line) {
 }
 
 function whoami {
-  Start-Typing "  My name is Ariff Bin Azman and the github handler is `"opariffazman`" because the `"OP`" stands for `"overpowered`"" -emoji "`u{1F4BB}" -delay 30  -line $true
-  Start-Typing "  Jokes aside it is actually an alumni form of my college that means `"Old Putera`" or `"Old Prince`"" -emoji "`u{1F3EB}" -delay 30
+  Start-Typing "  My name is Ariff Bin Azman and the github handler is `"opariffazman`" because the `"OP`" stands for `"overpowered`"" -emoji "`u{1F4BB}" -delay 20  -line $true
+  Start-Typing "  Jokes aside it is actually an alumni form of my college that means `"Old Putera`" or `"Old Prince`"" -emoji "`u{1F3EB}" -delay 20
 }
 
 function pwd {
-  Start-Typing "  I'm currently working for an indie video game company called AmmoboxStudios from Malaysia" -emoji "`u{1F4BC}" -delay 30 -line $true
-  Start-Typing "  Responsible of our backend for multiple multiplayer games and CI/CD automation for complete development cycle" -emoji "`u{267E}`u{FE0F}" -delay 30
+  Start-Typing "  I have worked with GLCs & MNCs throughout my career as well as indie & small studios" -emoji "`u{1F4BC}" -delay 20 -line $true
+  Start-Typing "  During my time, I've spearheaded organizations cultural shift to adopt DevOps emphasizing in continuos improvement & continuos deployment" -emoji "`u{267E}`u{FE0F}" -delay 20 -line $true
+  Start-Typing "  Mainly through fostering tight collaboration between development & operation processes through automation, lots & lots of automation" -emoji "`u{1F5A5}`u{FE0F}" -delay 20
 }
 
 function top {
   $skills = "automation", `
-    "programming", `
+    "shelll-scripting", `
+    "infrastructure-as-code", `
     "platform-as-a-service", `
-    "infrastructure", `
+    "monitoring-and-alerting", `
     "virtualization", `
     "containerization", `
     "game-development", `
     "machine-learning"
 
   $num = 0
-  $top = $skills | % {
+  $top = $skills | ForEach-Object {
     if ($num -lt ($skills.Length - 1)) {
       "`t00$num `troot `t$_`n"
     }
@@ -59,16 +61,18 @@ function top {
 }
 
 function history { 
-  $histories = "TeamCity, Jenkins, GitHub, GitLab, Azure DevOps", `
+  $histories = "TeamCity, Jenkins, GitHub, Perforce, SVN", `
     "PowerShell, JavaScript (NodeJS/server-side), Bash, Python", `
-    "C++, C, Lua, (SQL, HTML5 & CSS3)", `
-    "Azure Functions, Azure PlayFab & Aws GameLift", `
-    "VMWare, Azure VM & Aws EC2", `
-    "Docker & OpenShift", `
+    "HashiCorp [Terraform, Packer, Vault], Ansible", `
+    "Azure Functions & Aws Lambdas", `
+    "Azure PlayFab & Aws GameLift", `
+    "InfluxDB, Grafana, Prometheus", `
+    "Proxmox, VMWare, Azure VM & Aws EC2", `
+    "LXCs, Docker & Kubernetes", `
     "Unreal Engine, Godot & RPGMaker"
 
   $num = 1
-  $history = $histories | % {
+  $history = $histories | ForEach-Object {
     if ($num -lt ($histories.Length)) {
       "$num $_`n"
     }
@@ -82,13 +86,13 @@ function history {
 }
  
 function free {
-  Start-Typing "  During my free time, I plays video games and reverse engineers them as game `"mods`" that I share with the community" -emoji "`u{1F3AE}" -delay 30 -line $true
-  Start-Typing "  Other times I tinker with my self-hosted generative Artifical Intelligence techs exploring its capabilities and potentials" -emoji "`u{1F917}" -delay 30
+  Start-Typing "  During my free time, I plays video games and reverse engineers them as game `"mods`" that I share with the community" -emoji "`u{1F3AE}" -delay 20 -line $true
+  Start-Typing "  Other times I tinker with my self-hosted generative Artificial Intelligence techs exploring its capabilities and potentials" -emoji "`u{1F917}" -delay 20
 }
 
 function grep {
-  Start-Typing "  As I'm a very lazy person, I'll find ways to get things done in the most efficient manner" -emoji "`u{1F3C3}" -delay 30 -line $true
-  Start-Typing "  Wishing for days where human do more meaningful obligation while machines masterfully executes the tedious repetition" -emoji "`u{1F50E}" -delay 30
+  Start-Typing "  As I'm a very lazy person, I'll find ways to get things done in the most efficient manner" -emoji "`u{1F3C3}" -delay 20 -line $true
+  Start-Typing "  Wishing for days where human do more meaningful obligation while machines masterfully executes the tedious repetition" -emoji "`u{1F50E}" -delay 20
 }
 
 function traceroute {
