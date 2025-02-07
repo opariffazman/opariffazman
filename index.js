@@ -6,6 +6,8 @@ const MUSTACHE_MAIN_DIR = "./main.mustache"
 let DATA = {
   name: "opariffazman",
   nickname: "opsedar",
+  discordUserId: "178370555072872449",
+  nexusUserId: "16167329",
   date: new Date().toLocaleDateString("en-GB", {
     weekday: "short",
     month: "short",
