@@ -1,6 +1,6 @@
 <h1 align="center"> <img src="meow_bongotap.gif" alt="meow_bongotap"/> </h1>
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red&label=github+hits+on+Mon, 10 Feb, 09:08 GMT+8" alt="https://github.com/opariffazman" />
+  <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red&label=github+hits+on+Mon, 10 Feb, 14:20 GMT+8" alt="https://github.com/opariffazman" />
   <br> <br>
   <img src="opariffazman.gif" alt="header"/>
   <br> <br>
