@@ -4,7 +4,7 @@
   <br> <br>
   <img src="opariffazman.gif" alt="header"/>
   <br> <br>
-  <a href="https://opariffazman.github.io/" target="_blank"><img alt="Profile Updated" src="https://img.shields.io/github/last-commit/opariffazman/opariffazman?style=for-the-badge&label=Profile%20Updated&llogoColor=red&labelColor=black&color=red""></a>
+  <a href="https://opariffazman.github.io/" target="_blank"><img alt="Profile Updated" src="https://img.shields.io/github/last-commit/opariffazman/opariffazman?style=for-the-badge&label=Profile%20Updated&llogoColor=red&labelColor=black&color=red"></a>
 </div>
 
 <hr>
