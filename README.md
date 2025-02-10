@@ -1,10 +1,10 @@
 <h1 align="center"> <img src="meow_bongotap.gif" alt="meow_bongotap"/> </h1>
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red&label=github+hits+on+Mon, 10 Feb, 14:20 GMT+8" alt="https://github.com/opariffazman" />
+  <img src="https://komarev.com/ghpvc/?username=opariffazman&style=for-the-badge&color=red" alt="https://github.com/opariffazman" />
   <br> <br>
   <img src="opariffazman.gif" alt="header"/>
   <br> <br>
-  <a href="https://github.com/opariffazman/opariffazman" target="_blank"><img alt="Profile Updated" src="https://img.shields.io/github/last-commit/opariffazman/opariffazman?style=for-the-badge&label=Profile%20Updated&llogoColor=red&labelColor=black&color=red""></a>
+  <a href="https://opariffazman.github.io/" target="_blank"><img alt="Profile Updated" src="https://img.shields.io/github/last-commit/opariffazman/opariffazman?style=for-the-badge&label=Profile%20Updated&llogoColor=red&labelColor=black&color=red""></a>
 </div>
 
 <hr>
