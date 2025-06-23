@@ -8,7 +8,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="data:image/png;base64,">
-  <title>opariffazman</title>
 </head>
 
 <h1 align="center"> <img src="meow_bongotap.gif" alt="meow_bongotap"/> </h1>
