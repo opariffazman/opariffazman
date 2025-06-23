@@ -29,4 +29,10 @@ function generateFile(outFile, isHtml) {
     fs.writeFileSync(outFile, output)
   })
 }
-generateFile("README.md", false)
+
+// Default: generate README.md when run directly
+if (require.main === module) {
+  generateFile("README.md", false);
+}
+
+module.exports = { generateFile };
