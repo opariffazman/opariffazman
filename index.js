@@ -132,7 +132,7 @@ function generateBadgesSvg(outFile) {
     row.forEach(b => {
       const delay = (badgeIdx * 0.04).toFixed(2)
       const icon = loadIconSvgContent(b)
-      const iconSvg = icon ? `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white" style="fill:white">${icon.inner.replace(/fill=['"][^'"]*['"]/g, "fill='white'").replace(/stroke=['"][^'"]*['"]/g, "stroke='white'")}</svg>` : ""
+      const iconSvg = icon ? `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white">${icon.inner.replace(/fill=['"](?!none)[^'"]*['"]/g, "fill='white'").replace(/stroke=['"](?!none|white)[^'"]*['"]/g, "stroke='white'")}</svg>` : ""
       elements.push(`  <g class="b" style="animation-delay:${delay}s">
     <rect x="${x}" y="${y}" width="${b.width}" height="${badgeHeight}" rx="2" fill="#111"/>
     ${iconSvg}
