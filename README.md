@@ -42,8 +42,10 @@
     <img src="https://img.shields.io/badge/JavaScript-000?style=flat-square&logo=javascript&logoColor=white" alt="JavaScript" />
     <img src="https://img.shields.io/badge/Jenkins-000?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins" />
     <img src="https://img.shields.io/badge/K3s-000?style=flat-square&logo=k3s&logoColor=white" alt="K3s" />
+    <img src="https://img.shields.io/badge/Komodo-000?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nd2hpdGUnPjxwYXRoIGQ9J00xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0tMSAxNC41di05bDcgNC41LTcgNC41eicvPjwvc3ZnPg==&logoColor=white" alt="Komodo" />
     <img src="https://img.shields.io/badge/Kotlin-000?style=flat-square&logo=kotlin&logoColor=white" alt="Kotlin" />
     <img src="https://img.shields.io/badge/Kubernetes-000?style=flat-square&logo=kubernetes&logoColor=white" alt="Kubernetes" />
+    <img src="https://img.shields.io/badge/LLMs-000?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPSd3aGl0ZScgc3Ryb2tlLXdpZHRoPScyJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J00xMiA4VjRIOCcvPjxyZWN0IHdpZHRoPScxNicgaGVpZ2h0PScxMicgeD0nNCcgeT0nOCcgcng9JzInLz48cGF0aCBkPSdNMiAxNGgyJy8+PHBhdGggZD0nTTIwIDE0aDInLz48cGF0aCBkPSdNMTUgMTN2MicvPjxwYXRoIGQ9J005IDEzdjInLz48L3N2Zz4=&logoColor=white" alt="LLMs" />
     <img src="https://img.shields.io/badge/Linux-000?style=flat-square&logo=linux&logoColor=white" alt="Linux" />
     <img src="https://img.shields.io/badge/Longhorn-000?style=flat-square&logo=rancher&logoColor=white" alt="Longhorn" />
     <img src="https://img.shields.io/badge/Lua-000?style=flat-square&logo=lua&logoColor=white" alt="Lua" />
@@ -58,6 +60,7 @@
     <img src="https://img.shields.io/badge/Prometheus-000?style=flat-square&logo=prometheus&logoColor=white" alt="Prometheus" />
     <img src="https://img.shields.io/badge/Proxmox-000?style=flat-square&logo=proxmox&logoColor=white" alt="Proxmox" />
     <img src="https://img.shields.io/badge/Python-000?style=flat-square&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/RAG-000?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPSd3aGl0ZScgc3Ryb2tlLXdpZHRoPScyJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxjaXJjbGUgY3g9JzExJyBjeT0nMTEnIHI9JzgnLz48cGF0aCBkPSdtMjEgMjEtNC4zLTQuMycvPjxwYXRoIGQ9J00xMSA4djYnLz48cGF0aCBkPSdNOCAxMWg2Jy8+PC9zdmc+&logoColor=white" alt="RAG" />
     <img src="https://img.shields.io/badge/SQLite-000?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" />
     <img src="https://img.shields.io/badge/SVN-000?style=flat-square&logo=subversion&logoColor=white" alt="SVN" />
     <img src="https://img.shields.io/badge/Synology-000?style=flat-square&logo=synology&logoColor=white" alt="Synology" />
@@ -96,7 +99,7 @@
 <p>
     <a href="https://discordapp.com/users/178370555072872449/" target="_blank"><img src="https://img.shields.io/badge/Discord-000?style=flat-square&logo=discord&logoColor=white" alt="Discord" /></a>
     <a href="https://steamcommunity.com/id/opsedar/" target="_blank"><img src="https://img.shields.io/badge/Steam-000?style=flat-square&logo=steam&logoColor=white" alt="Steam" /></a>
-    <a href="https://www.nexusmods.com/users/16167329/?tab=user+files" target="_blank"><img src="https://img.shields.io/badge/NexusMods-000?style=flat-square&logo=nexusmods&logoColor=white" alt="NexusMods" /></a>
+    <a href="https://www.nexusmods.com/users/16167329/?tab=user+files" target="_blank"><img src="https://img.shields.io/badge/NexusMods-000?style=flat-square&logo=undefined&logoColor=white" alt="NexusMods" /></a>
     <a href="https://github.com/opariffazman" target="_blank"><img src="https://img.shields.io/badge/GitHub-000?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>
 </p>
 
