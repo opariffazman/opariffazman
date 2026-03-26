@@ -88,19 +88,19 @@ function loadIconSvgContent(item) {
 function generateBadgesSvg(outFile) {
   const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
   const badges = raw.badges
-  const iconSize = 26
-  const fontSize = 22
-  const padX = 14
-  const padY = 9
-  const badgeHeight = 44
-  const gapX = 10
-  const gapY = 10
-  const maxWidth = 1100
+  const iconSize = 36
+  const fontSize = 31
+  const padX = 20
+  const padY = 13
+  const badgeHeight = 62
+  const gapX = 12
+  const gapY = 12
+  const maxWidth = 1400
 
   // Measure approximate badge widths and lay them out in rows
   const badgeData = badges.map(b => {
-    const textWidth = b.label.length * 12
-    const width = padX + iconSize + 6 + textWidth + padX
+    const textWidth = b.label.length * 17
+    const width = padX + iconSize + 8 + textWidth + padX
     return { ...b, width: Math.ceil(width) }
   })
 
@@ -136,7 +136,7 @@ function generateBadgesSvg(outFile) {
       elements.push(`  <g class="b" style="animation-delay:${delay}s">
     <rect x="${x}" y="${y}" width="${b.width}" height="${badgeHeight}" rx="2" fill="#111"/>
     ${iconSvg}
-    <text x="${x + padX + iconSize + 6}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="${fontSize}" dominant-baseline="middle">${b.label}</text>
+    <text x="${x + padX + iconSize + 8}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="${fontSize}" dominant-baseline="middle">${b.label}</text>
   </g>`)
       x += b.width + gapX
       badgeIdx++
