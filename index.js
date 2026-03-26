@@ -69,6 +69,49 @@ function loadData() {
   }
 }
 
+function generateBadgesSvg(outFile) {
+  const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
+  const badges = raw.badges
+  const badgeHeight = 22
+  const badgeSpacing = 4
+  const cols = 9
+  const colWidth = 130
+  const rows = Math.ceil(badges.length / cols)
+  const svgWidth = cols * colWidth
+  const svgHeight = rows * (badgeHeight + badgeSpacing) + badgeSpacing
+
+  const badgeElements = badges.map((b, i) => {
+    const col = i % cols
+    const row = Math.floor(i / cols)
+    const x = col * colWidth + badgeSpacing
+    const y = row * (badgeHeight + badgeSpacing) + badgeSpacing
+    const logoParam = b.logoSvg
+      ? `data:image/svg+xml;base64,${Buffer.from(b.logoSvg).toString("base64")}`
+      : b.logo
+    const badgeUrl = `https://img.shields.io/badge/${encodeURIComponent(b.label)}-000?style=flat-square&amp;logo=${logoParam}&amp;logoColor=white`
+    const delay = (i * 0.06).toFixed(2)
+    return `    <foreignObject x="${x}" y="${y}" width="${colWidth - badgeSpacing}" height="${badgeHeight}" class="badge" style="animation-delay: ${delay}s">
+      <img xmlns="http://www.w3.org/1999/xhtml" src="${badgeUrl}" height="${badgeHeight}" alt="${b.label}" />
+    </foreignObject>`
+  }).join("\n")
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${svgWidth}" height="${svgHeight}">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .badge {
+      opacity: 0;
+      animation: fadeIn 0.4s ease forwards;
+    }
+  </style>
+${badgeElements}
+</svg>`
+
+  fs.writeFileSync(outFile, svg)
+}
+
 function generateFile(outFile, isHtml) {
   const data = { ...loadData(), isHtml }
   const template = fs.readFileSync(MUSTACHE_MAIN_DIR, "utf8")
