@@ -69,6 +69,20 @@ function loadData() {
   }
 }
 
+function measureText(text, fontSize) {
+  const narrow = "iIlj1.,;:!|()[]{}' "
+  const wide = "mwMWGOQD@"
+  const medium = "ABCEFHKNPRSTUVXYZ0234567890abcdefghknopqrstuvxyz"
+  let width = 0
+  for (const ch of text) {
+    if (narrow.includes(ch)) width += fontSize * 0.35
+    else if (wide.includes(ch)) width += fontSize * 0.75
+    else if (ch === ch.toUpperCase() && ch !== ch.toLowerCase()) width += fontSize * 0.65
+    else width += fontSize * 0.55
+  }
+  return Math.ceil(width)
+}
+
 function iconSlug(item) {
   return item.label.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-')
 }
@@ -101,7 +115,7 @@ function generateBadgesSvg(outFile) {
 
   // Measure approximate badge widths and lay them out in rows
   const badgeData = badges.map(b => {
-    const textWidth = b.label.length * 17
+    const textWidth = measureText(b.label, fontSize)
     const width = padX + iconSize + 8 + textWidth + padX
     return { ...b, width: Math.ceil(width) }
   })
@@ -176,7 +190,7 @@ function generateLinksSvg(outFile, items) {
   const borderRadius = 16
 
   const linkData = links.map(l => {
-    const textWidth = l.label.length * 7.5
+    const textWidth = measureText(l.label, fontSize)
     const width = padX + iconSize + iconGap + textWidth + padX
     return { ...l, width: Math.ceil(width) }
   })
