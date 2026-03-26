@@ -88,14 +88,14 @@ function loadIconSvgContent(item) {
 function generateBadgesSvg(outFile) {
   const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
   const badges = raw.badges
-  const iconSize = 12
-  const fontSize = 11
-  const padX = 6
-  const padY = 4
-  const badgeHeight = 20
+  const iconSize = 14
+  const fontSize = 12
+  const padX = 8
+  const padY = 5
+  const badgeHeight = 24
   const gapX = 6
   const gapY = 6
-  const maxWidth = 900
+  const maxWidth = 800
 
   // Measure approximate badge widths and lay them out in rows
   const badgeData = badges.map(b => {
@@ -132,7 +132,7 @@ function generateBadgesSvg(outFile) {
     row.forEach(b => {
       const delay = (badgeIdx * 0.04).toFixed(2)
       const icon = loadIconSvgContent(b)
-      const iconSvg = icon ? `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}">${icon.inner}</svg>` : ""
+      const iconSvg = icon ? `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white" style="fill:white">${icon.inner.replace(/fill=['"][^'"]*['"]/g, "fill='white'").replace(/stroke=['"][^'"]*['"]/g, "stroke='white'")}</svg>` : ""
       elements.push(`  <g class="b" style="animation-delay:${delay}s">
     <rect x="${x}" y="${y}" width="${b.width}" height="${badgeHeight}" rx="2" fill="#111"/>
     ${iconSvg}
@@ -143,7 +143,7 @@ function generateBadgesSvg(outFile) {
     })
   })
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${maxWidth}" height="${svgHeight}">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${maxWidth} ${svgHeight}" width="100%">
 <style>
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   .b { opacity: 0; animation: fadeIn 0.3s ease forwards; }
