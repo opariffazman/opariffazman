@@ -13,12 +13,22 @@ function loadData() {
 
   // Build tech badge HTML
   const badgeHtml = raw.badges
-    .map(b => `<img src="https://img.shields.io/badge/${encodeURIComponent(b.label)}-000?style=flat-square&logo=${b.logo}&logoColor=white" alt="${b.label}" />`)
+    .map(b => {
+      const logoParam = b.logoSvg
+        ? `data:image/svg+xml;base64,${Buffer.from(b.logoSvg).toString("base64")}`
+        : b.logo
+      return `<img src="https://img.shields.io/badge/${encodeURIComponent(b.label)}-000?style=flat-square&logo=${logoParam}&logoColor=white" alt="${b.label}" />`
+    })
     .join("\n    ")
 
   // Build professional link badges
   const professionalHtml = raw.professionalLinks
-    .map(l => `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${l.logo}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`)
+    .map(l => {
+      const logoParam = l.logoSvg
+        ? `data:image/svg+xml;base64,${Buffer.from(l.logoSvg).toString("base64")}`
+        : l.logo
+      return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logoParam}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`
+    })
     .join("\n    ")
 
   // Build featured project cards
