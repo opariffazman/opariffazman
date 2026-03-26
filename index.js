@@ -83,7 +83,8 @@ function loadIconSvgContent(item) {
   const svgTag = svg.match(/<svg[^>]*>/)?.[0] || ""
   const inner = svg.replace(/<\?xml[^?]*\?>/g, "").replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "").replace(/<title>[^<]*<\/title>/, "").trim()
   const isStroke = svgTag.includes('fill="none"') && inner.includes('stroke=')
-  return { viewBox: vb, inner, isStroke }
+  const fillRule = svgTag.includes('fill-rule="evenodd"') ? 'fill-rule="evenodd"' : ''
+  return { viewBox: vb, inner, isStroke, fillRule }
 }
 
 function generateBadgesSvg(outFile) {
@@ -138,7 +139,7 @@ function generateBadgesSvg(outFile) {
         if (icon.isStroke) {
           iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.inner}</svg>`
         } else {
-          iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white">${icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")}</svg>`
+          iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white" ${icon.fillRule}>${icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")}</svg>`
         }
       }
       elements.push(`  <g class="b" style="animation-delay:${delay}s">
@@ -162,6 +163,53 @@ ${elements.join("\n")}
   fs.writeFileSync(outFile, svg)
 }
 
+function generateLinksSvg(outFile, items) {
+  const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
+  const links = raw[items]
+  const iconSize = 18
+  const fontSize = 14
+  const padX = 10
+  const badgeHeight = 28
+  const gapX = 8
+  const maxWidth = 800
+
+  const linkData = links.map(l => {
+    const textWidth = l.label.length * 8
+    const width = padX + iconSize + 6 + textWidth + padX
+    return { ...l, width: Math.ceil(width) }
+  })
+
+  const totalWidth = linkData.reduce((s, l) => s + l.width + gapX, -gapX)
+  let x = Math.floor((maxWidth - totalWidth) / 2)
+  const y = 4
+  const svgHeight = badgeHeight + 8
+
+  const elements = linkData.map((l, i) => {
+    const icon = loadIconSvgContent(l)
+    let iconSvg = ""
+    if (icon) {
+      if (icon.isStroke) {
+        iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.inner}</svg>`
+      } else {
+        iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white" ${icon.fillRule || ''}>${icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")}</svg>`
+      }
+    }
+    const el = `  <a href="${l.url}"><g>
+    <rect x="${x}" y="${y}" width="${l.width}" height="${badgeHeight}" rx="2" fill="#111"/>
+    ${iconSvg}
+    <text x="${x + padX + iconSize + 6}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="${fontSize}" dominant-baseline="middle">${l.label}</text>
+  </g></a>`
+    x += l.width + gapX
+    return el
+  })
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${maxWidth} ${svgHeight}" width="100%">
+${elements.join("\n")}
+</svg>`
+
+  fs.writeFileSync(outFile, svg)
+}
+
 function generateFile(outFile, isHtml) {
   const data = { ...loadData(), isHtml }
   const template = fs.readFileSync(MUSTACHE_MAIN_DIR, "utf8")
@@ -171,9 +219,11 @@ function generateFile(outFile, isHtml) {
 
 if (require.main === module) {
   generateBadgesSvg("badges.svg")
+  generateLinksSvg("links-pro.svg", "professionalLinks")
+  generateLinksSvg("links-social.svg", "socialLinks")
   generateFile("README.md", false)
   generateFile("index.html", true)
-  console.log("Generated README.md, index.html, and badges.svg")
+  console.log("Generated all outputs")
 }
 
 module.exports = { generateFile }

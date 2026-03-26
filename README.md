@@ -6,12 +6,7 @@
 
 <h1>Ariff Azman</h1>
 
-<p>
-    <a href="https://linkedin.com/in/opariffazman" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/linkedin.svg&logoColor=white" alt="LinkedIn" /></a>
-    <a href="mailto:ariff.azman@doubleadigital.my" target="_blank"><img src="https://img.shields.io/badge/Email-000?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
-    <a href="https://doubleadigital.my" target="_blank"><img src="https://img.shields.io/badge/Double%20A%20Digital-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/double-a-digital.svg&logoColor=white" alt="Double A Digital" /></a>
-    <a href="https://trainer.opariffazman.com" target="_blank"><img src="https://img.shields.io/badge/Trainer%20Profile-000?style=flat-square&logo=readdotcv&logoColor=white" alt="Trainer Profile" /></a>
-</p>
+<img src="links-pro.svg" alt="Links" />
 </div>
 
 <hr>
@@ -29,12 +24,7 @@
 <hr>
 
 <div>
-<p>
-    <a href="https://discordapp.com/users/178370555072872449/" target="_blank"><img src="https://img.shields.io/badge/Discord-000?style=flat-square&logo=discord&logoColor=white" alt="Discord" /></a>
-    <a href="https://steamcommunity.com/id/opsedar/" target="_blank"><img src="https://img.shields.io/badge/Steam-000?style=flat-square&logo=steam&logoColor=white" alt="Steam" /></a>
-    <a href="https://www.nexusmods.com/users/16167329/?tab=user+files" target="_blank"><img src="https://img.shields.io/badge/NexusMods-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/nexusmods.svg&logoColor=white" alt="NexusMods" /></a>
-    <a href="https://github.com/opariffazman" target="_blank"><img src="https://img.shields.io/badge/GitHub-000?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>
-</p>
+<img src="links-social.svg" alt="Social Links" />
 
 <br>
 
