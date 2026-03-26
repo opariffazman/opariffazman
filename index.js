@@ -78,11 +78,12 @@ function loadIconSvgContent(item) {
   const path = `./icons/${name}.svg`
   if (!fs.existsSync(path)) return ""
   let svg = fs.readFileSync(path, "utf8")
-  // Extract just the inner content (paths etc) and viewBox
   const vbMatch = svg.match(/viewBox="([^"]*)"/)
   const vb = vbMatch ? vbMatch[1] : "0 0 24 24"
+  const svgTag = svg.match(/<svg[^>]*>/)?.[0] || ""
+  const isStroke = svgTag.includes('stroke=') && svgTag.includes('fill="none"')
   const inner = svg.replace(/<\?xml[^?]*\?>/g, "").replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "").replace(/<title>[^<]*<\/title>/, "").trim()
-  return { viewBox: vb, inner }
+  return { viewBox: vb, inner, isStroke }
 }
 
 function generateBadgesSvg(outFile) {
@@ -132,7 +133,14 @@ function generateBadgesSvg(outFile) {
     row.forEach(b => {
       const delay = (badgeIdx * 0.04).toFixed(2)
       const icon = loadIconSvgContent(b)
-      const iconSvg = icon ? `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white">${icon.inner.replace(/fill=['"](?!none)[^'"]*['"]/g, "fill='white'").replace(/stroke=['"](?!none|white)[^'"]*['"]/g, "stroke='white'")}</svg>` : ""
+      let iconSvg = ""
+      if (icon) {
+        if (icon.isStroke) {
+          iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.inner}</svg>`
+        } else {
+          iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white">${icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")}</svg>`
+        }
+      }
       elements.push(`  <g class="b" style="animation-delay:${delay}s">
     <rect x="${x}" y="${y}" width="${b.width}" height="${badgeHeight}" rx="2" fill="#111"/>
     ${iconSvg}
