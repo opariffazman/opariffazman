@@ -82,7 +82,7 @@ function loadIconSvgContent(item) {
   const vb = vbMatch ? vbMatch[1] : "0 0 24 24"
   const svgTag = svg.match(/<svg[^>]*>/)?.[0] || ""
   const inner = svg.replace(/<\?xml[^?]*\?>/g, "").replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "").replace(/<title>[^<]*<\/title>/, "").trim()
-  const isStroke = svgTag.includes('fill="none"') && inner.includes('stroke=')
+  const isStroke = svgTag.includes('fill="none"') && (inner.includes('stroke=') || svgTag.includes('stroke='))
   const fillRule = svgTag.includes('fill-rule="evenodd"') ? 'fill-rule="evenodd"' : ''
   return { viewBox: vb, inner, isStroke, fillRule }
 }
