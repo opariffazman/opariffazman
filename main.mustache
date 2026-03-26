@@ -21,8 +21,7 @@
     a { text-decoration: none; }
     hr { border: none; border-top: 1px solid #333; margin: 30px auto; max-width: 600px; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in { opacity: 0; animation: fadeIn 0.5s ease forwards; }
-    .section { opacity: 0; animation: fadeIn 0.6s ease forwards; }
+    .tech-stack { opacity: 0; animation: fadeIn 0.6s ease 0.4s forwards; }
   </style>
 </head>
 <body>
@@ -30,7 +29,7 @@
 
 <div align="center">
 
-<{{#isHtml}}div class="section" style="animation-delay: 0.1s"{{/isHtml}}{{^isHtml}}div{{/isHtml}}>
+<div>
 <a href="https://git.io/typing-svg"><img src="{{{typingSvgUrl}}}" alt="Typing SVG" /></a>
 
 <h1>{{name}}</h1>
@@ -42,7 +41,7 @@
 
 <hr>
 
-<{{#isHtml}}div class="section" style="animation-delay: 0.4s"{{/isHtml}}{{^isHtml}}div{{/isHtml}}>
+<{{#isHtml}}div class="tech-stack"{{/isHtml}}{{^isHtml}}div{{/isHtml}}>
 <p>
     {{{badgeHtml}}}
 </p>
@@ -50,19 +49,19 @@
 
 <hr>
 
-<{{#isHtml}}div class="section" style="animation-delay: 0.7s"{{/isHtml}}{{^isHtml}}div{{/isHtml}}>
+<div>
 {{{projectHtml}}}
 </div>
 
 <hr>
 
-<{{#isHtml}}div class="section" style="animation-delay: 1.0s"{{/isHtml}}{{^isHtml}}div{{/isHtml}}>
+<div>
 <img src="{{{activityGraphUrl}}}" alt="GitHub Activity Graph" />
 </div>
 
 <hr>
 
-<{{#isHtml}}div class="section" style="animation-delay: 1.3s"{{/isHtml}}{{^isHtml}}div{{/isHtml}}>
+<div>
 <p>
     {{{socialHtml}}}
 </p>
