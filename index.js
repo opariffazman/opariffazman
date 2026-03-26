@@ -88,18 +88,18 @@ function loadIconSvgContent(item) {
 function generateBadgesSvg(outFile) {
   const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
   const badges = raw.badges
-  const iconSize = 14
-  const fontSize = 12
-  const padX = 8
-  const padY = 5
-  const badgeHeight = 24
-  const gapX = 6
-  const gapY = 6
-  const maxWidth = 800
+  const iconSize = 20
+  const fontSize = 17
+  const padX = 11
+  const padY = 7
+  const badgeHeight = 34
+  const gapX = 8
+  const gapY = 8
+  const maxWidth = 900
 
   // Measure approximate badge widths and lay them out in rows
   const badgeData = badges.map(b => {
-    const textWidth = b.label.length * 6.5
+    const textWidth = b.label.length * 9
     const width = padX + iconSize + 4 + textWidth + padX
     return { ...b, width: Math.ceil(width) }
   })
