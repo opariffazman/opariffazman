@@ -2,7 +2,7 @@
 <div align="center">
 
 <div>
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com/?lines=Automating%20the%20tedious%2C%20amplifying%20the%20meaningful;Kickstarting%20IT%20beginners%20into%20modern%20digital%20adoption;AI%20consultant%20for%20the%20Royal%20Malaysian%20Air%20Force;Solopreneur%20behind%20a%20tech%20startup&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&height=50" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com/?lines=Automating%20the%20tedious%2C%20amplifying%20the%20meaningful;Kickstarting%20IT%20beginners%20into%20modern%20digital%20adoption;Securing%20AI%20implementation%20for%20the%20Royal%20Malaysian%20Air%20Force;Building%20a%20tech%20startup%20as%20a%20solopreneur&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&height=50" alt="Typing SVG" /></a>
 
 <h1>Ariff Azman</h1>
 
