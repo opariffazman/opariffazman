@@ -4,6 +4,12 @@ const fs = require("fs")
 const MUSTACHE_MAIN_DIR = "./main.mustache"
 const DATA_DIR = "./data.json"
 
+function logoParam(item) {
+  if (!item.logoSvg) return item.logo
+  const name = item.label.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-')
+  return `https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/${name}.svg`
+}
+
 function loadData() {
   const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
 
@@ -14,20 +20,16 @@ function loadData() {
   // Build tech badge HTML
   const badgeHtml = raw.badges
     .map(b => {
-      const logoParam = b.logoSvg
-        ? `data:image/svg+xml;base64,${Buffer.from(b.logoSvg).toString("base64")}`
-        : b.logo
-      return `<img src="https://img.shields.io/badge/${encodeURIComponent(b.label)}-000?style=flat-square&logo=${logoParam}&logoColor=white" alt="${b.label}" />`
+      const logo = logoParam(b)
+      return `<img src="https://img.shields.io/badge/${encodeURIComponent(b.label)}-000?style=flat-square&logo=${logo}&logoColor=white" alt="${b.label}" />`
     })
     .join("\n    ")
 
   // Build professional link badges
   const professionalHtml = raw.professionalLinks
     .map(l => {
-      const logoParam = l.logoSvg
-        ? `data:image/svg+xml;base64,${Buffer.from(l.logoSvg).toString("base64")}`
-        : l.logo
-      return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logoParam}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`
+      const logo = logoParam(l)
+      return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logo}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`
     })
     .join("\n    ")
 
@@ -44,10 +46,8 @@ function loadData() {
   // Build social link badges
   const socialHtml = raw.socialLinks
     .map(l => {
-      const logoParam = l.logoSvg
-        ? `data:image/svg+xml;base64,${Buffer.from(l.logoSvg).toString("base64")}`
-        : l.logo
-      return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logoParam}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`
+      const logo = logoParam(l)
+      return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logo}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`
     })
     .join("\n    ")
 
