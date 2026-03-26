@@ -1,0 +1,94 @@
+{
+  "name": "Ariff Azman",
+  "username": "opariffazman",
+  "typingLines": [
+    "Automating the tedious, amplifying the meaningful",
+    "Training 50+ engineers in DevOps",
+    "Teaching AI to Malaysia's Airforce",
+    "Founder @ Double A Digital"
+  ],
+  "professionalLinks": [
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/opariffazman",
+      "logo": "linkedin",
+      "logoColor": "white"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:ariff.azman@doubleadigital.my",
+      "logo": "gmail",
+      "logoColor": "white"
+    },
+    {
+      "label": "Double A Digital",
+      "url": "https://doubleadigital.my",
+      "logo": "google-chrome",
+      "logoColor": "white"
+    },
+    {
+      "label": "Trainer Profile",
+      "url": "https://trainer.opariffazman.com",
+      "logo": "google-chrome",
+      "logoColor": "white"
+    }
+  ],
+  "badges": [
+    { "label": "Terraform", "logo": "terraform" },
+    { "label": "AWS", "logo": "amazonwebservices" },
+    { "label": "Azure", "logo": "microsoftazure" },
+    { "label": "Docker", "logo": "docker" },
+    { "label": "Kubernetes", "logo": "kubernetes" },
+    { "label": "Python", "logo": "python" },
+    { "label": "JavaScript", "logo": "javascript" },
+    { "label": "Linux", "logo": "linux" },
+    { "label": "Git", "logo": "git" },
+    { "label": "GitHub Actions", "logo": "githubactions" },
+    { "label": "Grafana", "logo": "grafana" },
+    { "label": "Cloudflare", "logo": "cloudflare" },
+    { "label": "Proxmox", "logo": "proxmox" },
+    { "label": "Ansible", "logo": "ansible" }
+  ],
+  "featuredProjects": [
+    {
+      "repo": "opariffazman/t9-app-dialer",
+      "title": "T9 App Dialer"
+    },
+    {
+      "repo": "opariffazman/resume-as-code",
+      "title": "Resume as Code"
+    }
+  ],
+  "socialLinks": [
+    {
+      "label": "Discord",
+      "url": "https://discordapp.com/users/178370555072872449/",
+      "logo": "discord",
+      "logoColor": "white"
+    },
+    {
+      "label": "Steam",
+      "url": "https://steamcommunity.com/id/opsedar/",
+      "logo": "steam",
+      "logoColor": "white"
+    },
+    {
+      "label": "NexusMods",
+      "url": "https://www.nexusmods.com/users/16167329/?tab=user+files",
+      "logo": "nexusmods",
+      "logoColor": "white"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/opariffazman",
+      "logo": "github",
+      "logoColor": "white"
+    }
+  ],
+  "seo": {
+    "title": "Ariff Azman - Founder @ Double A Digital",
+    "description": "DevOps & AI Trainer, MBOT Certified Professional Technologist, HRDCorp Accredited Trainer. Founder of Double A Digital - SME digital transformation consultancy in Malaysia.",
+    "url": "https://opariffazman.com",
+    "image": "opariffazman.png"
+  }
+}
