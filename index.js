@@ -166,16 +166,18 @@ ${elements.join("\n")}
 function generateLinksSvg(outFile, items) {
   const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
   const links = raw[items]
-  const iconSize = 18
-  const fontSize = 14
-  const padX = 10
-  const badgeHeight = 28
-  const gapX = 8
+  const iconSize = 16
+  const fontSize = 13
+  const padX = 12
+  const iconGap = 6
+  const badgeHeight = 32
+  const gapX = 10
   const maxWidth = 800
+  const borderRadius = 16
 
   const linkData = links.map(l => {
-    const textWidth = l.label.length * 8
-    const width = padX + iconSize + 6 + textWidth + padX
+    const textWidth = l.label.length * 7.5
+    const width = padX + iconSize + iconGap + textWidth + padX
     return { ...l, width: Math.ceil(width) }
   })
 
@@ -195,9 +197,9 @@ function generateLinksSvg(outFile, items) {
       }
     }
     const el = `  <a href="${l.url}"><g>
-    <rect x="${x}" y="${y}" width="${l.width}" height="${badgeHeight}" rx="2" fill="#111"/>
+    <rect x="${x}" y="${y}" width="${l.width}" height="${badgeHeight}" rx="${borderRadius}" fill="none" stroke="white" stroke-width="1"/>
     ${iconSvg}
-    <text x="${x + padX + iconSize + 6}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="${fontSize}" dominant-baseline="middle">${l.label}</text>
+    <text x="${x + padX + iconSize + iconGap}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="${fontSize}" dominant-baseline="middle">${l.label}</text>
   </g></a>`
     x += l.width + gapX
     return el
