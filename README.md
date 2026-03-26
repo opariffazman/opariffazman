@@ -1,15 +1,15 @@
 
 <div align="center">
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com/?lines=Automating%20the%20tedious%2C%20amplifying%20the%20meaningful;Training%2050%2B%20engineers%20in%20DevOps;Teaching%20AI%20to%20Malaysia's%20Airforce;Founder%20%40%20Double%20A%20Digital&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&height=50" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com/?lines=Automating%20the%20tedious%2C%20amplifying%20the%20meaningful;Training%2050%2B%20engineers%20in%20DevOps;Teaching%20AI%20to%20Malaysia's%20Airforce;Founder%20%40%20Double%20A%20Digital&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&height=50" alt="Typing SVG" /></a>
 
 <h1>Ariff Azman</h1>
 
 <p>
     <a href="https://linkedin.com/in/opariffazman" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-000?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
     <a href="mailto:ariff.azman@doubleadigital.my" target="_blank"><img src="https://img.shields.io/badge/Email-000?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
-    <a href="https://doubleadigital.my" target="_blank"><img src="https://img.shields.io/badge/Double%20A%20Digital-000?style=flat-square&logo=google-chrome&logoColor=white" alt="Double A Digital" /></a>
-    <a href="https://trainer.opariffazman.com" target="_blank"><img src="https://img.shields.io/badge/Trainer%20Profile-000?style=flat-square&logo=google-chrome&logoColor=white" alt="Trainer Profile" /></a>
+    <a href="https://doubleadigital.my" target="_blank"><img src="https://img.shields.io/badge/Double%20A%20Digital-000?style=flat-square&logo=googlechrome&logoColor=white" alt="Double A Digital" /></a>
+    <a href="https://trainer.opariffazman.com" target="_blank"><img src="https://img.shields.io/badge/Trainer%20Profile-000?style=flat-square&logo=readdotcv&logoColor=white" alt="Trainer Profile" /></a>
 </p>
 
 <br>
@@ -33,8 +33,8 @@
 
 <br>
 
-<a href="https://github.com/opariffazman/t9-app-dialer">
-      <img src="https://github-readme-stats.vercel.app/api/pin/?username=opariffazman&repo=t9-app-dialer&theme=highcontrast&hide_border=true&bg_color=000000" alt="T9 App Dialer" />
+<a href="https://github.com/opariffazman/bootcamp-devops">
+      <img src="https://github-readme-stats.vercel.app/api/pin/?username=opariffazman&repo=bootcamp-devops&theme=highcontrast&hide_border=true&bg_color=000000" alt="DevOps Bootcamp" />
     </a>
     <a href="https://github.com/opariffazman/resume-as-code">
       <img src="https://github-readme-stats.vercel.app/api/pin/?username=opariffazman&repo=resume-as-code&theme=highcontrast&hide_border=true&bg_color=000000" alt="Resume as Code" />

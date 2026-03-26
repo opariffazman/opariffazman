@@ -23,13 +23,13 @@
     {
       "label": "Double A Digital",
       "url": "https://doubleadigital.my",
-      "logo": "google-chrome",
+      "logo": "googlechrome",
       "logoColor": "white"
     },
     {
       "label": "Trainer Profile",
       "url": "https://trainer.opariffazman.com",
-      "logo": "google-chrome",
+      "logo": "readdotcv",
       "logoColor": "white"
     }
   ],
@@ -51,8 +51,8 @@
   ],
   "featuredProjects": [
     {
-      "repo": "opariffazman/t9-app-dialer",
-      "title": "T9 App Dialer"
+      "repo": "opariffazman/bootcamp-devops",
+      "title": "DevOps Bootcamp"
     },
     {
       "repo": "opariffazman/resume-as-code",

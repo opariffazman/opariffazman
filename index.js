@@ -9,7 +9,7 @@ function loadData() {
 
   // Build typing SVG URL
   const lines = raw.typingLines.map(l => encodeURIComponent(l)).join(";")
-  const typingSvgUrl = `https://readme-typing-svg.demolab.com/?lines=${lines}&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&height=50`
+  const typingSvgUrl = `https://readme-typing-svg.demolab.com/?lines=${lines}&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&height=50`
 
   // Build tech badge HTML
   const badgeHtml = raw.badges
