@@ -43,7 +43,12 @@ function loadData() {
 
   // Build social link badges
   const socialHtml = raw.socialLinks
-    .map(l => `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${l.logo}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`)
+    .map(l => {
+      const logoParam = l.logoSvg
+        ? `data:image/svg+xml;base64,${Buffer.from(l.logoSvg).toString("base64")}`
+        : l.logo
+      return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logoParam}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`
+    })
     .join("\n    ")
 
   // Activity graph URL
