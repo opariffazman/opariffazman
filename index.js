@@ -3,76 +3,19 @@ const fs = require("fs")
 
 const MUSTACHE_MAIN_DIR = "./main.mustache"
 const DATA_DIR = "./data.json"
+const FONT_FAMILY = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
 
-function logoParam(item) {
-  if (!item.logoSvg) return item.logo
-  const name = item.label.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-')
-  return `https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/${name}.svg`
+function readData() {
+  return JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
 }
 
-function loadData() {
-  const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
-
-  // Build typing SVG URL
-  const lines = raw.typingLines.map(l => encodeURIComponent(l)).join(";")
-  const typingSvgUrl = `https://readme-typing-svg.demolab.com/?lines=${lines}&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&height=50`
-
-  // Build tech badge HTML
-  const badgeHtml = raw.badges
-    .map(b => {
-      const logo = logoParam(b)
-      return `<img src="https://img.shields.io/badge/${encodeURIComponent(b.label)}-000?style=flat-square&logo=${logo}&logoColor=white" alt="${b.label}" />`
-    })
-    .join("\n    ")
-
-  // Build professional link badges
-  const professionalHtml = raw.professionalLinks
-    .map(l => {
-      const logo = logoParam(l)
-      return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logo}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`
-    })
-    .join("\n    ")
-
-  // Build featured project cards
-  const projectHtml = raw.featuredProjects
-    .map(p => {
-      const [owner, repo] = p.repo.split("/")
-      return `<a href="https://github.com/${p.repo}">
-      <img src="https://github-readme-stats.vercel.app/api/pin/?username=${owner}&repo=${repo}&theme=highcontrast&hide_border=true&bg_color=000000" alt="${p.title}" />
-    </a>`
-    })
-    .join("\n    ")
-
-  // Build social link badges
-  const socialHtml = raw.socialLinks
-    .map(l => {
-      const logo = logoParam(l)
-      return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logo}&logoColor=${l.logoColor}" alt="${l.label}" /></a>`
-    })
-    .join("\n    ")
-
-  // Activity graph URL
-  const activityGraphUrl = `https://github-readme-activity-graph.vercel.app/graph?username=${raw.username}&theme=high-contrast&hide_border=true&bg_color=000000&color=FFFFFF&line=FFFFFF&point=FFFFFF&area=true&area_color=555555`
-
-  // Profile view counter
-  const viewCounterUrl = `https://komarev.com/ghpvc/?username=${raw.username}&style=flat-square&color=000000&label=views`
-
-  return {
-    ...raw,
-    typingSvgUrl,
-    badgeHtml,
-    professionalHtml,
-    projectHtml,
-    socialHtml,
-    activityGraphUrl,
-    viewCounterUrl,
-  }
+function iconSlug(item) {
+  return item.label.toLowerCase().replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-")
 }
 
 function measureText(text, fontSize) {
   const narrow = "iIlj1.,;:!|()[]{}' "
   const wide = "mwMWGOQD@"
-  const medium = "ABCEFHKNPRSTUVXYZ0234567890abcdefghknopqrstuvxyz"
   let width = 0
   for (const ch of text) {
     if (narrow.includes(ch)) width += fontSize * 0.35
@@ -83,83 +26,83 @@ function measureText(text, fontSize) {
   return Math.ceil(width)
 }
 
-function iconSlug(item) {
-  return item.label.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-')
-}
-
 function loadIconSvgContent(item) {
-  const name = iconSlug(item)
-  const path = `./icons/${name}.svg`
+  const path = `./icons/${iconSlug(item)}.svg`
   if (!fs.existsSync(path)) return ""
-  let svg = fs.readFileSync(path, "utf8")
+  const svg = fs.readFileSync(path, "utf8")
   const vbMatch = svg.match(/viewBox="([^"]*)"/)
-  const vb = vbMatch ? vbMatch[1] : "0 0 24 24"
+  const viewBox = vbMatch ? vbMatch[1] : "0 0 24 24"
   const svgTag = svg.match(/<svg[^>]*>/)?.[0] || ""
-  const inner = svg.replace(/<\?xml[^?]*\?>/g, "").replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "").replace(/<title>[^<]*<\/title>/, "").trim()
-  const isStroke = svgTag.includes('fill="none"') && (inner.includes('stroke=') || svgTag.includes('stroke='))
-  const fillRule = svgTag.includes('fill-rule="evenodd"') ? 'fill-rule="evenodd"' : ''
-  return { viewBox: vb, inner, isStroke, fillRule }
+  const inner = svg
+    .replace(/<\?xml[^?]*\?>/g, "")
+    .replace(/<svg[^>]*>/, "")
+    .replace(/<\/svg>/, "")
+    .replace(/<title>[^<]*<\/title>/, "")
+    .trim()
+  const isStroke = svgTag.includes('fill="none"') && (inner.includes("stroke=") || svgTag.includes("stroke="))
+  const fillRule = svgTag.includes('fill-rule="evenodd"') ? 'fill-rule="evenodd"' : ""
+  return { viewBox, inner, isStroke, fillRule }
 }
 
-function generateBadgesSvg(outFile) {
-  const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
-  const badges = raw.badges
+function renderIconSvg(icon, x, y, size) {
+  if (!icon) return ""
+  if (icon.isStroke) {
+    return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="${icon.viewBox}" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.inner}</svg>`
+  }
+  const coloredInner = icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")
+  return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="${icon.viewBox}" fill="white" ${icon.fillRule}>${coloredInner}</svg>`
+}
+
+function flowLayout(items, maxWidth, gapX) {
+  const rows = []
+  let currentRow = []
+  let rowWidth = 0
+  for (const item of items) {
+    if (rowWidth + item.width + gapX > maxWidth && currentRow.length > 0) {
+      rows.push(currentRow)
+      currentRow = []
+      rowWidth = 0
+    }
+    currentRow.push(item)
+    rowWidth += item.width + gapX
+  }
+  if (currentRow.length > 0) rows.push(currentRow)
+  return rows
+}
+
+function generateBadgesSvg(outFile, badges) {
   const iconSize = 36
   const fontSize = 31
   const padX = 20
-  const padY = 13
   const badgeHeight = 62
   const gapX = 12
   const gapY = 12
   const maxWidth = 1400
 
-  // Measure approximate badge widths and lay them out in rows
-  const badgeData = badges.map(b => {
+  const badgeData = badges.map(function (b) {
     const textWidth = measureText(b.label, fontSize)
-    const width = padX + iconSize + 8 + textWidth + padX
-    return { ...b, width: Math.ceil(width) }
+    const width = Math.ceil(padX + iconSize + 8 + textWidth + padX)
+    return { ...b, width }
   })
 
-  // Flow layout: wrap rows
-  const rows = []
-  let currentRow = []
-  let rowWidth = 0
-  for (const b of badgeData) {
-    if (rowWidth + b.width + gapX > maxWidth && currentRow.length > 0) {
-      rows.push(currentRow)
-      currentRow = []
-      rowWidth = 0
-    }
-    currentRow.push(b)
-    rowWidth += b.width + gapX
-  }
-  if (currentRow.length > 0) rows.push(currentRow)
-
+  const rows = flowLayout(badgeData, maxWidth, gapX)
   const svgHeight = rows.length * (badgeHeight + gapY) + gapY
   let badgeIdx = 0
   const elements = []
 
-  rows.forEach((row, ri) => {
-    // Center row
-    const totalRowWidth = row.reduce((s, b) => s + b.width + gapX, -gapX)
+  rows.forEach(function (row, ri) {
+    const totalRowWidth = row.reduce(function (s, b) { return s + b.width + gapX }, -gapX)
     let x = Math.floor((maxWidth - totalRowWidth) / 2)
     const y = ri * (badgeHeight + gapY) + gapY
 
-    row.forEach(b => {
+    row.forEach(function (b) {
       const delay = (badgeIdx * 0.04).toFixed(2)
       const icon = loadIconSvgContent(b)
-      let iconSvg = ""
-      if (icon) {
-        if (icon.isStroke) {
-          iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.inner}</svg>`
-        } else {
-          iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white" ${icon.fillRule}>${icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")}</svg>`
-        }
-      }
+      const iconSvg = renderIconSvg(icon, x + padX, y + (badgeHeight - iconSize) / 2, iconSize)
       elements.push(`  <g class="b" style="animation-delay:${delay}s">
     <rect x="${x}" y="${y}" width="${b.width}" height="${badgeHeight}" rx="2" fill="#111"/>
     ${iconSvg}
-    <text x="${x + padX + iconSize + 8}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="${fontSize}" dominant-baseline="middle">${b.label}</text>
+    <text x="${x + padX + iconSize + 8}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="${FONT_FAMILY}" font-size="${fontSize}" dominant-baseline="middle">${b.label}</text>
   </g>`)
       x += b.width + gapX
       badgeIdx++
@@ -177,9 +120,7 @@ ${elements.join("\n")}
   fs.writeFileSync(outFile, svg)
 }
 
-function generateLinksSvg(outFile, items) {
-  const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
-  const links = raw[items]
+function generateLinksSvg(outFile, links) {
   const iconSize = 16
   const fontSize = 13
   const padX = 12
@@ -189,31 +130,24 @@ function generateLinksSvg(outFile, items) {
   const maxWidth = 800
   const borderRadius = 16
 
-  const linkData = links.map(l => {
+  const linkData = links.map(function (l) {
     const textWidth = measureText(l.label, fontSize)
-    const width = padX + iconSize + iconGap + textWidth + padX
-    return { ...l, width: Math.ceil(width) }
+    const width = Math.ceil(padX + iconSize + iconGap + textWidth + padX)
+    return { ...l, width }
   })
 
-  const totalWidth = linkData.reduce((s, l) => s + l.width + gapX, -gapX)
+  const totalWidth = linkData.reduce(function (s, l) { return s + l.width + gapX }, -gapX)
   let x = Math.floor((maxWidth - totalWidth) / 2)
   const y = 4
   const svgHeight = badgeHeight + 8
 
-  const elements = linkData.map((l, i) => {
+  const elements = linkData.map(function (l) {
     const icon = loadIconSvgContent(l)
-    let iconSvg = ""
-    if (icon) {
-      if (icon.isStroke) {
-        iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.inner}</svg>`
-      } else {
-        iconSvg = `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}" fill="white" ${icon.fillRule || ''}>${icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")}</svg>`
-      }
-    }
+    const iconSvg = renderIconSvg(icon, x + padX, y + (badgeHeight - iconSize) / 2, iconSize)
     const el = `  <a href="${l.url}"><g>
     <rect x="${x}" y="${y}" width="${l.width}" height="${badgeHeight}" rx="${borderRadius}" fill="none" stroke="white" stroke-width="1"/>
     ${iconSvg}
-    <text x="${x + padX + iconSize + iconGap}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="${fontSize}" dominant-baseline="middle">${l.label}</text>
+    <text x="${x + padX + iconSize + iconGap}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="${FONT_FAMILY}" font-size="${fontSize}" dominant-baseline="middle">${l.label}</text>
   </g></a>`
     x += l.width + gapX
     return el
@@ -226,19 +160,29 @@ ${elements.join("\n")}
   fs.writeFileSync(outFile, svg)
 }
 
-function generateFile(outFile, isHtml) {
-  const data = { ...loadData(), isHtml }
+function loadTemplateData(raw) {
+  const lines = raw.typingLines.map(function (l) { return encodeURIComponent(l) }).join(";")
+  const typingSvgUrl = `https://readme-typing-svg.demolab.com/?lines=${lines}&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&height=50`
+  const activityGraphUrl = `https://github-readme-activity-graph.vercel.app/graph?username=${raw.username}&theme=high-contrast&hide_border=true&bg_color=000000&color=FFFFFF&line=FFFFFF&point=FFFFFF&area=true&area_color=555555`
+  const viewCounterUrl = `https://komarev.com/ghpvc/?username=${raw.username}&style=flat-square&color=000000&label=views`
+
+  return { ...raw, typingSvgUrl, activityGraphUrl, viewCounterUrl }
+}
+
+function generateFile(outFile, isHtml, raw) {
+  const data = { ...loadTemplateData(raw), isHtml }
   const template = fs.readFileSync(MUSTACHE_MAIN_DIR, "utf8")
   const output = Mustache.render(template, data)
   fs.writeFileSync(outFile, output)
 }
 
 if (require.main === module) {
-  generateBadgesSvg("badges.svg")
-  generateLinksSvg("links-pro.svg", "professionalLinks")
-  generateLinksSvg("links-social.svg", "socialLinks")
-  generateFile("README.md", false)
-  generateFile("index.html", true)
+  const raw = readData()
+  generateBadgesSvg("badges.svg", raw.badges)
+  generateLinksSvg("links-pro.svg", raw.professionalLinks)
+  generateLinksSvg("links-social.svg", raw.socialLinks)
+  generateFile("README.md", false, raw)
+  generateFile("index.html", true, raw)
   console.log("Generated all outputs")
 }
 
