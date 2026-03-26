@@ -38,5 +38,6 @@ jobs:
           file-path: |
             README.md
             index.html
+            badges.svg
           commit-msg: "chore: updated README.md [skip ci]"
           github-token: ${{ secrets.GITHUB_TOKEN }}

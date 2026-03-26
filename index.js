@@ -69,44 +69,86 @@ function loadData() {
   }
 }
 
+function iconSlug(item) {
+  return item.label.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-')
+}
+
+function loadIconSvgContent(item) {
+  const name = iconSlug(item)
+  const path = `./icons/${name}.svg`
+  if (!fs.existsSync(path)) return ""
+  let svg = fs.readFileSync(path, "utf8")
+  // Extract just the inner content (paths etc) and viewBox
+  const vbMatch = svg.match(/viewBox="([^"]*)"/)
+  const vb = vbMatch ? vbMatch[1] : "0 0 24 24"
+  const inner = svg.replace(/<\?xml[^?]*\?>/g, "").replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "").replace(/<title>[^<]*<\/title>/, "").trim()
+  return { viewBox: vb, inner }
+}
+
 function generateBadgesSvg(outFile) {
   const raw = JSON.parse(fs.readFileSync(DATA_DIR, "utf8"))
   const badges = raw.badges
-  const badgeHeight = 22
-  const badgeSpacing = 4
-  const cols = 9
-  const colWidth = 130
-  const rows = Math.ceil(badges.length / cols)
-  const svgWidth = cols * colWidth
-  const svgHeight = rows * (badgeHeight + badgeSpacing) + badgeSpacing
+  const iconSize = 12
+  const fontSize = 11
+  const padX = 6
+  const padY = 4
+  const badgeHeight = 20
+  const gapX = 6
+  const gapY = 6
+  const maxWidth = 900
 
-  const badgeElements = badges.map((b, i) => {
-    const col = i % cols
-    const row = Math.floor(i / cols)
-    const x = col * colWidth + badgeSpacing
-    const y = row * (badgeHeight + badgeSpacing) + badgeSpacing
-    const logoParam = b.logoSvg
-      ? `data:image/svg+xml;base64,${Buffer.from(b.logoSvg).toString("base64")}`
-      : b.logo
-    const badgeUrl = `https://img.shields.io/badge/${encodeURIComponent(b.label)}-000?style=flat-square&amp;logo=${logoParam}&amp;logoColor=white`
-    const delay = (i * 0.06).toFixed(2)
-    return `    <foreignObject x="${x}" y="${y}" width="${colWidth - badgeSpacing}" height="${badgeHeight}" class="badge" style="animation-delay: ${delay}s">
-      <img xmlns="http://www.w3.org/1999/xhtml" src="${badgeUrl}" height="${badgeHeight}" alt="${b.label}" />
-    </foreignObject>`
-  }).join("\n")
+  // Measure approximate badge widths and lay them out in rows
+  const badgeData = badges.map(b => {
+    const textWidth = b.label.length * 6.5
+    const width = padX + iconSize + 4 + textWidth + padX
+    return { ...b, width: Math.ceil(width) }
+  })
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${svgWidth}" height="${svgHeight}">
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+  // Flow layout: wrap rows
+  const rows = []
+  let currentRow = []
+  let rowWidth = 0
+  for (const b of badgeData) {
+    if (rowWidth + b.width + gapX > maxWidth && currentRow.length > 0) {
+      rows.push(currentRow)
+      currentRow = []
+      rowWidth = 0
     }
-    .badge {
-      opacity: 0;
-      animation: fadeIn 0.4s ease forwards;
-    }
-  </style>
-${badgeElements}
+    currentRow.push(b)
+    rowWidth += b.width + gapX
+  }
+  if (currentRow.length > 0) rows.push(currentRow)
+
+  const svgHeight = rows.length * (badgeHeight + gapY) + gapY
+  let badgeIdx = 0
+  const elements = []
+
+  rows.forEach((row, ri) => {
+    // Center row
+    const totalRowWidth = row.reduce((s, b) => s + b.width + gapX, -gapX)
+    let x = Math.floor((maxWidth - totalRowWidth) / 2)
+    const y = ri * (badgeHeight + gapY) + gapY
+
+    row.forEach(b => {
+      const delay = (badgeIdx * 0.04).toFixed(2)
+      const icon = loadIconSvgContent(b)
+      const iconSvg = icon ? `<svg x="${x + padX}" y="${y + (badgeHeight - iconSize) / 2}" width="${iconSize}" height="${iconSize}" viewBox="${icon.viewBox}">${icon.inner}</svg>` : ""
+      elements.push(`  <g class="b" style="animation-delay:${delay}s">
+    <rect x="${x}" y="${y}" width="${b.width}" height="${badgeHeight}" rx="2" fill="#111"/>
+    ${iconSvg}
+    <text x="${x + padX + iconSize + 4}" y="${y + badgeHeight / 2 + 1}" fill="white" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="${fontSize}" dominant-baseline="middle">${b.label}</text>
+  </g>`)
+      x += b.width + gapX
+      badgeIdx++
+    })
+  })
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${maxWidth}" height="${svgHeight}">
+<style>
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .b { opacity: 0; animation: fadeIn 0.3s ease forwards; }
+</style>
+${elements.join("\n")}
 </svg>`
 
   fs.writeFileSync(outFile, svg)
@@ -120,9 +162,10 @@ function generateFile(outFile, isHtml) {
 }
 
 if (require.main === module) {
+  generateBadgesSvg("badges.svg")
   generateFile("README.md", false)
   generateFile("index.html", true)
-  console.log("Generated README.md and index.html")
+  console.log("Generated README.md, index.html, and badges.svg")
 }
 
 module.exports = { generateFile }

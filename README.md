@@ -17,60 +17,7 @@
 <hr>
 
 <div>
-<p>
-    <img src="https://img.shields.io/badge/AI%20Agents-000?style=flat-square&logo=huggingface&logoColor=white" alt="AI Agents" />
-    <img src="https://img.shields.io/badge/Ansible-000?style=flat-square&logo=ansible&logoColor=white" alt="Ansible" />
-    <img src="https://img.shields.io/badge/AWS-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/aws.svg&logoColor=white" alt="AWS" />
-    <img src="https://img.shields.io/badge/Azure-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/azure.svg&logoColor=white" alt="Azure" />
-    <img src="https://img.shields.io/badge/Bash-000?style=flat-square&logo=gnubash&logoColor=white" alt="Bash" />
-    <img src="https://img.shields.io/badge/C%2B%2B-000?style=flat-square&logo=cplusplus&logoColor=white" alt="C++" />
-    <img src="https://img.shields.io/badge/Claude%20Code-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/claude-code.svg&logoColor=white" alt="Claude Code" />
-    <img src="https://img.shields.io/badge/Cloudflare-000?style=flat-square&logo=cloudflare&logoColor=white" alt="Cloudflare" />
-    <img src="https://img.shields.io/badge/ComfyUI-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/comfyui.svg&logoColor=white" alt="ComfyUI" />
-    <img src="https://img.shields.io/badge/Coolify-000?style=flat-square&logo=coolify&logoColor=white" alt="Coolify" />
-    <img src="https://img.shields.io/badge/CSS-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/css.svg&logoColor=white" alt="CSS" />
-    <img src="https://img.shields.io/badge/DigitalOcean-000?style=flat-square&logo=digitalocean&logoColor=white" alt="DigitalOcean" />
-    <img src="https://img.shields.io/badge/Docker-000?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
-    <img src="https://img.shields.io/badge/Dokploy-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/dokploy.svg&logoColor=white" alt="Dokploy" />
-    <img src="https://img.shields.io/badge/GCP-000?style=flat-square&logo=googlecloud&logoColor=white" alt="GCP" />
-    <img src="https://img.shields.io/badge/Git-000?style=flat-square&logo=git&logoColor=white" alt="Git" />
-    <img src="https://img.shields.io/badge/GitHub%20Actions-000?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions" />
-    <img src="https://img.shields.io/badge/GitLab-000?style=flat-square&logo=gitlab&logoColor=white" alt="GitLab" />
-    <img src="https://img.shields.io/badge/Golang-000?style=flat-square&logo=go&logoColor=white" alt="Golang" />
-    <img src="https://img.shields.io/badge/Grafana-000?style=flat-square&logo=grafana&logoColor=white" alt="Grafana" />
-    <img src="https://img.shields.io/badge/HTML-000?style=flat-square&logo=html5&logoColor=white" alt="HTML" />
-    <img src="https://img.shields.io/badge/JavaScript-000?style=flat-square&logo=javascript&logoColor=white" alt="JavaScript" />
-    <img src="https://img.shields.io/badge/Jenkins-000?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins" />
-    <img src="https://img.shields.io/badge/K3s-000?style=flat-square&logo=k3s&logoColor=white" alt="K3s" />
-    <img src="https://img.shields.io/badge/Komodo-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/komodo.svg&logoColor=white" alt="Komodo" />
-    <img src="https://img.shields.io/badge/Kotlin-000?style=flat-square&logo=kotlin&logoColor=white" alt="Kotlin" />
-    <img src="https://img.shields.io/badge/Kubernetes-000?style=flat-square&logo=kubernetes&logoColor=white" alt="Kubernetes" />
-    <img src="https://img.shields.io/badge/LLMs-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/llms.svg&logoColor=white" alt="LLMs" />
-    <img src="https://img.shields.io/badge/Linux-000?style=flat-square&logo=linux&logoColor=white" alt="Linux" />
-    <img src="https://img.shields.io/badge/Longhorn-000?style=flat-square&logo=rancher&logoColor=white" alt="Longhorn" />
-    <img src="https://img.shields.io/badge/Lua-000?style=flat-square&logo=lua&logoColor=white" alt="Lua" />
-    <img src="https://img.shields.io/badge/MCP-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/mcp.svg&logoColor=white" alt="MCP" />
-    <img src="https://img.shields.io/badge/N8N-000?style=flat-square&logo=n8n&logoColor=white" alt="N8N" />
-    <img src="https://img.shields.io/badge/Node.js-000?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js" />
-    <img src="https://img.shields.io/badge/Ollama-000?style=flat-square&logo=ollama&logoColor=white" alt="Ollama" />
-    <img src="https://img.shields.io/badge/OpenWebUI-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/openwebui.svg&logoColor=white" alt="OpenWebUI" />
-    <img src="https://img.shields.io/badge/Packer-000?style=flat-square&logo=packer&logoColor=white" alt="Packer" />
-    <img src="https://img.shields.io/badge/PostgreSQL-000?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-    <img src="https://img.shields.io/badge/PowerShell-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/powershell.svg&logoColor=white" alt="PowerShell" />
-    <img src="https://img.shields.io/badge/Prometheus-000?style=flat-square&logo=prometheus&logoColor=white" alt="Prometheus" />
-    <img src="https://img.shields.io/badge/Proxmox-000?style=flat-square&logo=proxmox&logoColor=white" alt="Proxmox" />
-    <img src="https://img.shields.io/badge/Python-000?style=flat-square&logo=python&logoColor=white" alt="Python" />
-    <img src="https://img.shields.io/badge/RAG-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/rag.svg&logoColor=white" alt="RAG" />
-    <img src="https://img.shields.io/badge/SQLite-000?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" />
-    <img src="https://img.shields.io/badge/SVN-000?style=flat-square&logo=subversion&logoColor=white" alt="SVN" />
-    <img src="https://img.shields.io/badge/Synology-000?style=flat-square&logo=synology&logoColor=white" alt="Synology" />
-    <img src="https://img.shields.io/badge/TeamCity-000?style=flat-square&logo=teamcity&logoColor=white" alt="TeamCity" />
-    <img src="https://img.shields.io/badge/Terraform-000?style=flat-square&logo=terraform&logoColor=white" alt="Terraform" />
-    <img src="https://img.shields.io/badge/Terragrunt-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/terragrunt.svg&logoColor=white" alt="Terragrunt" />
-    <img src="https://img.shields.io/badge/TypeScript-000?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
-    <img src="https://img.shields.io/badge/Windows%20Server-000?style=flat-square&logo=https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/windows-server.svg&logoColor=white" alt="Windows Server" />
-    <img src="https://img.shields.io/badge/WireGuard-000?style=flat-square&logo=wireguard&logoColor=white" alt="WireGuard" />
-</p>
+<img src="badges.svg" alt="Tech Stack" />
 </div>
 
 <hr>
