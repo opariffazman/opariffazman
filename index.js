@@ -81,7 +81,7 @@ function loadIconSvgContent(item) {
   const vbMatch = svg.match(/viewBox="([^"]*)"/)
   const vb = vbMatch ? vbMatch[1] : "0 0 24 24"
   const svgTag = svg.match(/<svg[^>]*>/)?.[0] || ""
-  const isStroke = svgTag.includes('stroke=') && svgTag.includes('fill="none"')
+  const isStroke = svgTag.includes('fill="none"')
   const inner = svg.replace(/<\?xml[^?]*\?>/g, "").replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "").replace(/<title>[^<]*<\/title>/, "").trim()
   return { viewBox: vb, inner, isStroke }
 }
