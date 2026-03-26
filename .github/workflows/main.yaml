@@ -17,6 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
       - name: Cache node modules
         uses: actions/cache@v4
@@ -27,12 +29,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Update README file
+      - name: Generate README.md and index.html
         run: node index.js
 
-      - name: Commit & push README changes
+      - name: Commit & push changes
         uses: test-room-7/action-update-file@v2.0.0
         with:
-            file-path: README.md
-            commit-msg: "chore: updated README.md [skip ci]"
-            github-token: ${{ secrets.GITHUB_TOKEN }}
+          file-path: |
+            README.md
+            index.html
+          commit-msg: "chore: updated README.md [skip ci]"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
