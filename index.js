@@ -162,9 +162,14 @@ ${elements.join("\n")}
 
 function buildLinkHtml(links) {
   return links.map(function (l) {
-    const logo = l.logoSvg
-      ? `https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/${iconSlug(l)}.svg`
-      : l.logo
+    let logo = l.logo || ""
+    if (l.logoSvg) {
+      const svgPath = `./icons/${iconSlug(l)}.svg`
+      if (fs.existsSync(svgPath)) {
+        const svg = fs.readFileSync(svgPath, "utf8")
+        logo = `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`
+      }
+    }
     return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logo}&logoColor=white" alt="${l.label}" /></a>`
   }).join("\n    ")
 }
