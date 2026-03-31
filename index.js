@@ -160,13 +160,32 @@ ${elements.join("\n")}
   fs.writeFileSync(outFile, svg)
 }
 
+function buildLinkHtml(links) {
+  return links.map(function (l) {
+    const icon = loadIconSvgContent(l)
+    let iconHtml = ""
+    if (icon) {
+      if (icon.isStroke) {
+        iconHtml = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="${icon.viewBox}" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">${icon.inner}</svg>`
+      } else {
+        const coloredInner = icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")
+        iconHtml = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="${icon.viewBox}" fill="white" ${icon.fillRule} style="vertical-align: middle; margin-right: 4px;">${coloredInner}</svg>`
+      }
+    }
+    return `<a href="${l.url}" target="_blank" style="display: inline-block; padding: 6px 14px; border: 1px solid #444; border-radius: 20px; color: white; text-decoration: none; font-size: 13px; margin: 3px; font-family: ${FONT_FAMILY};">${iconHtml}${l.label}</a>`
+  }).join("\n    ")
+}
+
 function loadTemplateData(raw) {
   const lines = raw.typingLines.map(function (l) { return encodeURIComponent(l) }).join(";")
   const typingSvgUrl = `https://readme-typing-svg.demolab.com/?lines=${lines}&font=Fira+Code&size=22&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&height=50`
   const activityGraphUrl = `https://github-readme-activity-graph.vercel.app/graph?username=${raw.username}&theme=high-contrast&hide_border=true&bg_color=000000&color=FFFFFF&line=FFFFFF&point=FFFFFF&area=true&area_color=555555`
   const viewCounterUrl = `https://komarev.com/ghpvc/?username=${raw.username}&style=flat-square&color=000000&label=views`
 
-  return { ...raw, typingSvgUrl, activityGraphUrl, viewCounterUrl }
+  const professionalHtml = buildLinkHtml(raw.professionalLinks)
+  const socialHtml = buildLinkHtml(raw.socialLinks)
+
+  return { ...raw, typingSvgUrl, activityGraphUrl, viewCounterUrl, professionalHtml, socialHtml }
 }
 
 function generateFile(outFile, isHtml, raw) {
