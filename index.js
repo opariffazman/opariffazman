@@ -162,17 +162,10 @@ ${elements.join("\n")}
 
 function buildLinkHtml(links) {
   return links.map(function (l) {
-    const icon = loadIconSvgContent(l)
-    let iconHtml = ""
-    if (icon) {
-      if (icon.isStroke) {
-        iconHtml = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="${icon.viewBox}" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">${icon.inner}</svg>`
-      } else {
-        const coloredInner = icon.inner.replace(/fill=['"](?!none|white)[^'"]*['"]/g, "fill='white'")
-        iconHtml = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="${icon.viewBox}" fill="white" ${icon.fillRule} style="vertical-align: middle; margin-right: 4px;">${coloredInner}</svg>`
-      }
-    }
-    return `<a href="${l.url}" target="_blank" style="display: inline-block; padding: 6px 14px; border: 1px solid #444; border-radius: 20px; color: white; text-decoration: none; font-size: 13px; margin: 3px; font-family: ${FONT_FAMILY};">${iconHtml}${l.label}</a>`
+    const logo = l.logoSvg
+      ? `https://raw.githubusercontent.com/opariffazman/opariffazman/main/icons/${iconSlug(l)}.svg`
+      : l.logo
+    return `<a href="${l.url}" target="_blank"><img src="https://img.shields.io/badge/${encodeURIComponent(l.label)}-000?style=flat-square&logo=${logo}&logoColor=white" alt="${l.label}" /></a>`
   }).join("\n    ")
 }
 
